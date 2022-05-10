@@ -1,6 +1,4 @@
-
-
-import React,{useEffect} from 'react';
+import React, {useEffect} from 'react';
 
 import {
   SafeAreaView,
@@ -13,30 +11,24 @@ import {
 } from 'react-native';
 import OneSignal from 'react-native-onesignal';
 
+const App = () => {
+  useEffect(() => {
+    //OneSignal Init Code
+    OneSignal.setLogLevel(6, 0);
 
+    OneSignal.setAppId('a6dbd8e6-08f6-405c-8823-2a7a8517e966');
+    //Onesignla ID
 
-
-
-const App= () => {
-  useEffect(()=>{
-//OneSignal Init Code
-OneSignal.setLogLevel(6, 0);
-OneSignal.setAppId("a6dbd8e6-08f6-405c-8823-2a7a8517e966");
-//END OneSignal Init Code
-
-
-//Method for handling notifications opened
-OneSignal.setNotificationOpenedHandler(notification => {
-  console.log("OneSignal: notification opened:", notification);
-});
-  },[])
+    //Method for handling notifications opened
+    OneSignal.setNotificationOpenedHandler(notification => {
+      console.log('OneSignal: notification opened:', notification);
+    });
+  }, []);
 
   return (
-   <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-   <Text>
-   Hello World
-   </Text>
-   </View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>OneSignal</Text>
+    </View>
   );
 };
 
